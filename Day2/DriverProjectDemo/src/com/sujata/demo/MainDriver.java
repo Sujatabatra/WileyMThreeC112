@@ -10,7 +10,7 @@ public class MainDriver {
 		Driver sonu=new Driver("Sonu");
 		Driver monu=new Driver("Monu");
 		
-		sonu.setCar(car1);
+		sonu.setCar(car2);
 		sonu.drive();
 		
 
