@@ -1,0 +1,14 @@
+package com.sujata.persistence;
+
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import com.sujata.bean.Employee;
+
+public interface EmployeeDao {
+
+	Collection<Employee> getAllRecords() throws SQLException, ClassNotFoundException;
+	boolean insertEmployee(Employee employee) throws SQLException, ClassNotFoundException;
+}
