@@ -44,20 +44,53 @@ public class MyBinarySearchTree {
 		}
 			
 	}
-	public static void main(String[] args) {
+	
+	void delete(int key) {
+		root=deleteKey(root,key);
+	}
+	
+	Node deleteKey(Node root,int key) {
+		//empty tree
+		if(root==null)
+			return root;
 		
-		MyBinarySearchTree tree=new MyBinarySearchTree();
+		//searching the key
+		if(key<root.key)
+			root.left=deleteKey(root.left,key);
+		else if(key>root.key)
+			root.right=deleteKey(root.right,key);
+		//if key found : this is the node which is supposed to be deleted
+		else {
+			//node with one child
+			if(root.left==null)
+				return root.right;
+			else if(root.right==null)
+				return root.left;
+			
+			
+			/*
+			 * node with two children :Get the inorder successor
+			 * smallest in right subtree
+			 *  
+			 */
+			root.key=replaceValue(root.right);
+			
+			//Delete The inorder Successor
+			root.right=deleteKey(root.right,root.key);
+			
+		}
+		return root;
+	}
+	
+	int replaceValue(Node root) {
+		int repValue=root.key;
+		while(root.left!=null) {
+			repValue=root.left.key;
+			root=root.left;
+			
+		}
+		return repValue;
 		
-		tree.insert(50);
-		tree.insert(90);
-		tree.insert(70);
-		tree.insert(20);
-		tree.insert(10);
-		tree.insert(30);
-		tree.insert(120);
-		tree.insert(40);
-		
-		tree.inorder();
 	}
 
 }
