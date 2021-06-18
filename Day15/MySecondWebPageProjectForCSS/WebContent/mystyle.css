@@ -1,0 +1,17 @@
+@charset "ISO-8859-1";
+h1{
+color: maroon;
+text-align: center;
+}
+#first{
+	color:aqua;
+}
+.classB,#third{
+	color:blue;
+}
+
+body{
+	/*background-image: url(flower.jpeg);
+	background-repeat: repeat;
+	*/
+}

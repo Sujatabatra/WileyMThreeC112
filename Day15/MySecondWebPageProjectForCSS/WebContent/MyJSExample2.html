@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+function add(){
+	n1=document.getElementById('no1').value;
+	console.log(n1);
+	n2=document.getElementById("no2").value;
+	console.log(n2);
+	sum=parseInt(n1)+parseInt(n2);
+	console.log(sum)
+	document.getElementById("result").innerHTML=sum;
+}
+</script>
+</head>
+<body>
+
+
+Enter First No : <input type="text" id="no1"><br><br>
+Enter Second No : <input type="text" id="no2"><br><br>
+<button onclick="add()">Sum</button>
+
+<div id="result">
+display
+</div>
+</body>
+</html>
