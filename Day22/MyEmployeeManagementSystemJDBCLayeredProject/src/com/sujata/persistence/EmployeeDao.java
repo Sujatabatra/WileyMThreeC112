@@ -12,4 +12,6 @@ public interface EmployeeDao {
 
 	Collection<Employee> getAllRecords() throws SQLException, ClassNotFoundException,ClassNotFoundException, IOException;
 	boolean insertEmployee(Employee employee) throws SQLException, ClassNotFoundException,ClassNotFoundException, IOException;
+	Employee getRecordByID(int id) throws SQLException, ClassNotFoundException,ClassNotFoundException, IOException;
+
 }

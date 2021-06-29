@@ -67,4 +67,32 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	}
 
+	@Override
+	public Employee getRecordByID(int id)
+			throws SQLException, ClassNotFoundException, ClassNotFoundException, IOException {
+		
+		Connection connection = MySQLConnection.getConnection();
+
+		PreparedStatement statement = connection.prepareStatement("select * from emp");
+		ResultSet resultset = statement.executeQuery();
+
+		Employee employee = null;
+
+
+		if (resultset.next()) {
+			employee = new Employee();
+			employee.seteId(resultset.getInt("id"));
+			employee.seteName(resultset.getString("name"));
+			employee.setDeptt(resultset.getString("department"));
+			employee.setDesig(resultset.getString("designation"));
+			employee.setSalary(resultset.getInt("salary"));
+
+		}
+
+		connection.close();
+
+		return employee;
+
+	}
+
 }
