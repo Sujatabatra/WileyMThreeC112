@@ -33,7 +33,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	 */
 	@Override
 	public EmployeePaySlip getPaySlip(int eid) throws SQLException, ClassNotFoundException,ClassNotFoundException, IOException{
+		
 		Employee employee=employeeDao.getRecordByID(eid);
+		
 		EmployeePaySlip paySlip=null;
 		if(employee!=null) {
 			paySlip=new EmployeePaySlip();

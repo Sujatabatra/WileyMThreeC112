@@ -73,7 +73,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		
 		Connection connection = MySQLConnection.getConnection();
 
-		PreparedStatement statement = connection.prepareStatement("select * from emp");
+		PreparedStatement statement = connection.prepareStatement("select * from emp where id=?");
+		statement.setInt(1, id);
+		
 		ResultSet resultset = statement.executeQuery();
 
 		Employee employee = null;
