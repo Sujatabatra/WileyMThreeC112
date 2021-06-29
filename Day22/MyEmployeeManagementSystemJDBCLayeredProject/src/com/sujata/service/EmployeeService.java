@@ -1,0 +1,16 @@
+package com.sujata.service;
+
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import com.sujata.bean.Employee;
+
+public interface EmployeeService {
+
+	Collection<Employee> getAllEmployees()throws SQLException, ClassNotFoundException,ClassNotFoundException, IOException;
+	
+	boolean saveEmployee(Employee employee)throws SQLException, ClassNotFoundException,ClassNotFoundException, IOException;
+}
