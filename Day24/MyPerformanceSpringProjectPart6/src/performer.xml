@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+<!-- Constructor Injection -->
+	<bean id="Saumya" class="com.sujata.producer.Singer">
+		<constructor-arg name="song" value="Thinking Out Loud"></constructor-arg>
+	</bean>
+
+	<bean id="Aryan" class="com.sujata.producer.Dancer">
+		<constructor-arg name="style" value="HipHop"></constructor-arg>
+	</bean>
+
+<!-- Setter Injection -->
+	<bean id="Kratika" class="com.sujata.producer.Juggler">
+		<property name="balls" value="4"></property>
+	</bean>
+	
+	<bean id="guit" class="com.sujata.producer.Guitar" autowire-candidate="false"></bean>
+	
+	<bean id="drum" class="com.sujata.producer.Drum" autowire-candidate="false"></bean>
+	
+	<bean id="tabla" class="com.sujata.producer.Tabla"></bean>
+	
+	<bean id="Vasu" class="com.sujata.producer.Instrumentalist">
+		<property name="instrument" ref="guit"></property>
+	</bean>
+	  <!-- 
+	<bean id="Ananna123" class="com.sujata.producer.Instrumentalist" autowire="byName"></bean>
+ -->
+	<bean id="Ananna" class="com.sujata.producer.Instrumentalist" autowire="byType"></bean>
+	
+	<bean id="Yawar" class="com.sujata.producer.Instrumentalist" autowire="constructor"></bean>
+	
+</beans>
