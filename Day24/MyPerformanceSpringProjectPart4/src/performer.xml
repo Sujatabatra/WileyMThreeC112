@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- Constructor Injection -->
+	<bean id="Saumya" class="com.sujata.producer.Singer">
+		<constructor-arg name="songs">
+			<list>
+				<value>Thinking Out Loud</value>
+				<value>The Night We Make</value>
+				<value>Mirror on the Wall</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="Aryan" class="com.sujata.producer.Dancer">
+		<property name="styles">
+			<set>
+				<value>HipHop</value>
+				<value>FreeStyle</value>
+				<value>Kathak</value>
+			</set>
+		</property>
+	</bean>
+
+	<bean id="Rishabh" class="com.sujata.producer.MultiTalented">
+		<property name="songsDanceStyle">
+			<props>
+				<prop key="Numb">FreeStyle</prop>
+				<prop key="Strangers in the Night">Bharatnatyam</prop>
+				<prop key="Down to Bussiness">Salsa</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- Setter Injection -->
+	<bean id="Kratika" class="com.sujata.producer.Juggler">
+		<constructor-arg name="objectsballs">
+			<map>
+				<entry key="balls" value="4"></entry>
+				<entry key="pompom" value="6"></entry>
+				<entry key="bottles" value="8"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+	<bean id="guit" class="com.sujata.producer.Guitar"></bean>
+
+	<bean id="drum" class="com.sujata.producer.Drum"></bean>
+
+	<bean id="tabla" class="com.sujata.producer.Tabla"></bean>
+
+	<bean id="Vasu" class="com.sujata.producer.Instrumentalist">
+		<property name="songsInstrument">
+			<map>
+				<entry key="Kabira" value-ref="tabla"></entry>
+				<entry key="We don't talk any more" value-ref="guit"></entry>
+				<entry key="Jagrata Mata Rani Ka" value-ref="drum"></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
