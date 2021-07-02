@@ -22,5 +22,6 @@
 	
 	<bean class="com.sujata.producer.InitPerformers"></bean>
 	
+	<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"></bean>
 	
 </beans>

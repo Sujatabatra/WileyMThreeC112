@@ -70,5 +70,13 @@ public class Juggler implements Performer
 		System.out.println("Hi I am custom destroy method");
 	}
 	
+	@PostConstruct
+	public void myInit() {
+		System.out.println("Hi I am Post Construct");
+	}
 	
+	@PreDestroy
+	public void myDestroy() {
+		System.out.println("Hi I am Pre Destroy");
+	}
 }
