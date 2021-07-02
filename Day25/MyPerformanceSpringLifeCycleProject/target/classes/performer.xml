@@ -19,4 +19,8 @@
 		<property name="balls" value="4"></property>
 	</bean>
 	
+	
+	<bean class="com.sujata.producer.InitPerformers"></bean>
+	
+	
 </beans>

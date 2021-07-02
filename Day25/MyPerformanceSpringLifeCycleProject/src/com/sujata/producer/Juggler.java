@@ -1,5 +1,8 @@
 package com.sujata.producer;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;
@@ -11,7 +14,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 public class Juggler implements Performer
-,BeanNameAware,BeanFactoryAware,ApplicationContextAware,BeanPostProcessor,InitializingBean,DisposableBean {
+,BeanNameAware,BeanFactoryAware,ApplicationContextAware,InitializingBean,DisposableBean {
 
 	private int balls;
 	private String name;
@@ -45,11 +48,7 @@ public class Juggler implements Performer
 		
 	}
 
-	@Override
-	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("Step 6: postProcessBeforeInitialization");
-		return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
-	}
+	
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		System.out.println("Step 7: Initializing Bean afterPropertySetMethod() of juggler");
@@ -60,11 +59,7 @@ public class Juggler implements Performer
 		System.out.println("Step 8: Hi I am cusom init method");
 	}
 	
-	@Override
-	public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-		System.out.println("Step 9 : postProcessAfterInitualization");
-		return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
-	}
+	
 	@Override
 	public void destroy() throws Exception {
 		System.out.println("Step 1: destroy() from DisposableBean of Juggler");
@@ -74,4 +69,6 @@ public class Juggler implements Performer
 	public void customDestroy() {
 		System.out.println("Hi I am custom destroy method");
 	}
+	
+	
 }
