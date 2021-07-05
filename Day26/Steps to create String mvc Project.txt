@@ -1,0 +1,11 @@
+Steps for Spring MVC Application
+
+1. Add tomcat server
+2. Create Dynamic Web Project (Version 2.5)
+3. Convert into maven project
+4. add depedency for spring -context and web mvc of same version
+5. modify WEB-INF/web.xml map all the requests to dispatcher servlet
+6. create bean configuration file with name dispatchername-servlet.xml inside WEB-INF
+7. create class and annotate it with @Controller
+8. create public methods with ModelAndView Return type and annotate method with @RequestMapping
+9. create jsp file inside web content 
