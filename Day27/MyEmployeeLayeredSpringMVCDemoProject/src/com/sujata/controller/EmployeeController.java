@@ -65,4 +65,22 @@ public class EmployeeController {
 		return new ModelAndView("output", "message", "Saving Employee Failed!");
 	
 	}
+	
+	@RequestMapping("/deleteEmployeePage")
+	public String deleteEmployeePageController() {
+		return "inputEmpForDelete";
+	}
+	
+	@RequestMapping("/deleteEmp")
+	public ModelAndView deleteEmployeeController(@RequestParam("empId") String id) {
+		try {
+			if(employeeService.removeEmployee(Integer.parseInt(id))) {
+				return new ModelAndView("output","message","Employee with ID "+id+" deleted Successfully!");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ModelAndView("output","message","Employee with ID "+id+" deletion Failed!");
+		
+	}
 }
