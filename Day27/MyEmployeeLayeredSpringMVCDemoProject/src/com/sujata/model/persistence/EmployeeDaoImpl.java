@@ -37,11 +37,12 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Override
 	public boolean insertEmployee(Employee employee) throws Exception {
 		Connection connection = MySQLConnection.makeConnection();
-		PreparedStatement statement = connection.prepareStatement("insert into Emp(Name,Department,Designation,Salary) values(?,?,?,?)");
-		statement.setString(1,employee.geteName());
-		statement.setString(2,employee.getDeptt());
-		statement.setString(3,employee.getDesig());
-		statement.setInt(4,employee.getSalary());
+		PreparedStatement statement = connection.prepareStatement("insert into Emp(Id,Name,Department,Designation,Salary) values(?,?,?,?,?)");
+		statement.setInt(1, employee.geteId());
+		statement.setString(2,employee.geteName());
+		statement.setString(3,employee.getDeptt());
+		statement.setString(4,employee.getDesig());
+		statement.setInt(5,employee.getSalary());
 		if(statement.executeUpdate() > 0)
 			return true;
 		else

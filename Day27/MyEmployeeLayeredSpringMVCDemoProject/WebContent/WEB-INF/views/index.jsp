@@ -9,7 +9,7 @@
 <body>
 <h1>Welcome to Employee Management System</h1>
 <a href="">Display All Employees</a><br>
-<a href="">Insert New Employee</a><br>
+<a href="./insertEmployeePage">Insert New Employee</a><br>
 <a href="./inputForEmpSearch">Search Employee By ID</a><br>
 <a href="">Delete Employee</a><br>
 </body>

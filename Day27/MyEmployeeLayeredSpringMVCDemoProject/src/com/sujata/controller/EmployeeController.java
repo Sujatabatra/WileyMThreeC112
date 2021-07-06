@@ -2,6 +2,7 @@ package com.sujata.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -46,4 +47,22 @@ public class EmployeeController {
 		return new ModelAndView("output", "message", "Employee with id "+id+" doesnot exist");
 	}
 
+	@RequestMapping("/insertEmployeePage")
+	public ModelAndView insertEmpPageController() {
+		return new ModelAndView("inputEmpDetails", "emp", new Employee());
+	}
+	
+	@RequestMapping("/insertEmp")
+	public ModelAndView insertEmployeeController(@ModelAttribute("emp") Employee emp ) {
+		try {
+			if(employeeService.saveEmployee(emp))
+				return new ModelAndView("output", "message", "Employee Saved Successfully!");
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		
+		return new ModelAndView("output", "message", "Saving Employee Failed!");
+	
+	}
 }
