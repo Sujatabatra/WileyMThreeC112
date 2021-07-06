@@ -1,5 +1,8 @@
 package com.sujata.controller;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -82,5 +85,17 @@ public class EmployeeController {
 		}
 		return new ModelAndView("output","message","Employee with ID "+id+" deletion Failed!");
 		
+	}
+	
+	@RequestMapping("/getAllEmps")
+	public ModelAndView getAllEmployeesController() {
+		Collection<Employee> employees=null;
+		try {
+			employees=employeeService.getAllEmployees();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ModelAndView("displayAllEmployeesWithoutScriplets", "employees", employees);
 	}
 }
