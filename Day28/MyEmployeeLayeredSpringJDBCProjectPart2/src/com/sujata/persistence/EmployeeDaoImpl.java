@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -12,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.sujata.bean.Employee;
+import com.sujata.helper.EmployeeRowMapper;
 
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -40,7 +42,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 //			employees.add(employee);
 //		}
 //		return employees;
-		return null;
+		
+		List<Employee> employees=jdbcTemplate.query("select * from Emp", new EmployeeRowMapper());
+		return employees;
 	}
 
 	@Override
@@ -69,7 +73,9 @@ public class EmployeeDaoImpl implements EmployeeDao {
 //			employee.setSalary(set.getInt("Salary"));
 //			return employee;
 //		}
-		return null;
+		Object ob[]= {id};
+		Employee employee=jdbcTemplate.queryForObject("select * from Emp where id = ?", ob, new EmployeeRowMapper());
+		return employee;
 	}
 
 	@Override
