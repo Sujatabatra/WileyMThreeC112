@@ -20,8 +20,7 @@ public class EmployeeMain {
 			presentation.showMenu();
 			System.out.println("Enter Choice : ");
 			int choice=sc.nextInt();
-			if(choice == 5)
-				sc.close();
+			
 			presentation.performMenu(choice);
 		}
 	}
