@@ -1,5 +1,7 @@
 package com.sujata.demo;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,9 +11,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+
+
 //@SpringBootApplication = @Configuration + @ComponentScan
 @SpringBootApplication
 public class MyfirstSpringbootProjectApplication implements CommandLineRunner {
+	
+	Logger logger = LoggerFactory.getLogger(MyfirstSpringbootProjectApplication.class);
 
 	@Value("${mrng.name}")
 	String mName;
@@ -30,6 +36,11 @@ public class MyfirstSpringbootProjectApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		logger.trace("A TRACE Message");
+        logger.debug("A DEBUG Message");
+        logger.info("An INFO Message");
+        logger.warn("A WARN Message");
+        logger.error("An ERROR Message");
 		greet.wish();
 		
 	}
