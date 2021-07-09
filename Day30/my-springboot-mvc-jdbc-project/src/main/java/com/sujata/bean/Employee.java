@@ -2,7 +2,7 @@ package com.sujata.bean;
 
 public class Employee {
 
-	private int eId;
+	private Integer eId;
 	private String eName;
 	private String deptt;
 	private String desig;
@@ -10,7 +10,7 @@ public class Employee {
 	public Employee() {
 		
 	}
-	public Employee(int eId, String eName, String deptt, String desig, int salary) {
+	public Employee(Integer eId, String eName, String deptt, String desig, int salary) {
 		super();
 		this.eId = eId;
 		this.eName = eName;
@@ -18,10 +18,11 @@ public class Employee {
 		this.desig = desig;
 		this.salary = salary;
 	}
-	public int geteId() {
+	
+	public Integer geteId() {
 		return eId;
 	}
-	public void seteId(int eId) {
+	public void seteId(Integer eId) {
 		this.eId = eId;
 	}
 	public String geteName() {
