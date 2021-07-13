@@ -43,9 +43,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public Employee removeEmployee(int id){
+		Optional<Employee> opEmp=employeeDao.findById(id);
 		
 		employeeDao.deleteById(id);
-		Optional<Employee> opEmp=employeeDao.findById(id);
 		Employee emp=null;
 		if(opEmp.isPresent())
 			 emp=opEmp.get();
